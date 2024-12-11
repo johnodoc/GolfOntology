@@ -1,0 +1,1525 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/jod19/ontologies/2024/11/untitled-ontology-12/"
+     xml:base="http://www.semanticweb.org/jod19/ontologies/2024/11/untitled-ontology-12/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:golfOntology="http://example.org/golfOntology#">
+    <owl:Ontology rdf:about="http://example.org/golfOntology">
+        <owl:versionIRI rdf:resource="http://example.org/golfOntology/1.0"/>
+        <rdfs:comment>Golf Ontology</rdfs:comment>
+        <rdfs:description>An Ontology to model golf-related data including Players, Courses, Tournaments, Scores &amp; Equipment</rdfs:description>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#creator -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#creator"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#description -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#description"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/golfOntology#forHole -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#forHole">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#GolfHole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#governedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#governedBy">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Tournament"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#GoverningBodies"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasHole -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#hasHole">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#GolfHole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasScoreEntry -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#hasScoreEntry">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreCard"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasWinner -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#hasWinner">
+        <owl:inverseOf rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Tournament"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Golfer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hostedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#hostedBy">
+        <owl:inverseOf rdf:resource="http://example.org/golfOntology#hostsEvent"/>
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Events"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#GolfCourse"/>
+                    <rdf:Description rdf:about="http://example.org/golfOntology#GoverningBodies"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hostsEvent -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#hostsEvent">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#GolfCourse"/>
+                    <rdf:Description rdf:about="http://example.org/golfOntology#GoverningBodies"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Events"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#isPlayedOnBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#isPlayedOnBy">
+        <owl:inverseOf rdf:resource="http://example.org/golfOntology#playsOnCourse"/>
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Golfer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#isWinnerOf -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#isWinnerOf">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Tournament"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#playedBy -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#playedBy">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#RoundOfGolf"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Golfer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#playedDuring -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#playedDuring">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#RoundOfGolf"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Tournament"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#playsInTournament -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#playsInTournament">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Tournament"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#playsOnCourse -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#playsOnCourse">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#recordedFor -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#recordedFor">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreCard"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Golfer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#scoredOn -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#scoredOn">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreCard"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#RoundOfGolf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#usesEquipement -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/golfOntology#usesEquipement">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <rdfs:range rdf:resource="http://example.org/golfOntology#Equipement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/golfOntology#hasCity -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasCity">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasCountry -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasCountry">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Place"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasDate -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasDate">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#RoundOfGolf"/>
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Tournament"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasHandicap -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasHandicap">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasHoleDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasHoleDistance">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasHoleIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasHoleIndex">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasHoleNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasHoleNumber">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasName">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasPar -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasPar">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#hasScoreForHole -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#hasScoreForHole">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreCard"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://example.org/golfOntology#scoreValue -->
+
+    <owl:DatatypeProperty rdf:about="http://example.org/golfOntology#scoreValue">
+        <rdfs:domain rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/golfOntology#AmateurGolfer -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#AmateurGolfer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#playsInTournament"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#AmateurTournament"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://example.org/golfOntology#ProfessionalGolfer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#AmateurTournament -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#AmateurTournament">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Tournament"/>
+        <owl:disjointWith rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#BritishOpen">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#Equipement -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Equipement"/>
+    
+
+
+    <!-- http://example.org/golfOntology#Events -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Events"/>
+    
+
+
+    <!-- http://example.org/golfOntology#GolfBall -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GolfBall">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Equipement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#GolfClub -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GolfClub">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Equipement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#GolfCourse -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GolfCourse">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#GolfEntity -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GolfEntity"/>
+    
+
+
+    <!-- http://example.org/golfOntology#GolfHole -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GolfHole">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#Golfer -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Golfer">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://example.org/golfOntology#usesEquipement"/>
+                <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#GolfClub"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#GoverningBodies -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GoverningBodies">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#GrandSlamWinner -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#GrandSlamWinner">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#TheMasters"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#USOpen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#MajorCompetitor -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#MajorCompetitor">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#playsInTournament"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#MajorTournament -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#MajorTournament">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Tournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#MajorWinner -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#MajorWinner">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#isWinnerOf"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#Organisation -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Organisation">
+        <owl:disjointWith rdf:resource="http://example.org/golfOntology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#PGAChampionship">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#Person -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Person"/>
+    
+
+
+    <!-- http://example.org/golfOntology#Place -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Place"/>
+    
+
+
+    <!-- http://example.org/golfOntology#ProfessionalGolfer -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#ProfessionalGolfer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.org/golfOntology#Golfer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.org/golfOntology#playsInTournament"/>
+                        <owl:someValuesFrom rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#ProfessionalTournament -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#ProfessionalTournament">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Tournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#RoundOfGolf -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#RoundOfGolf"/>
+    
+
+
+    <!-- http://example.org/golfOntology#ScoreCard -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#ScoreCard"/>
+    
+
+
+    <!-- http://example.org/golfOntology#ScoreEntry -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#ScoreEntry"/>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#TheMasters">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#Tournament -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#Tournament">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://example.org/golfOntology#hasWinner"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://example.org/golfOntology#Golfer"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#Events"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen -->
+
+    <owl:Class rdf:about="http://example.org/golfOntology#USOpen">
+        <rdfs:subClassOf rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/golfOntology#AugustaHole1 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#AugustaHole1">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <golfOntology:hasHoleDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">445</golfOntology:hasHoleDistance>
+        <golfOntology:hasHoleIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</golfOntology:hasHoleIndex>
+        <golfOntology:hasHoleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</golfOntology:hasHoleNumber>
+        <golfOntology:hasName>Tea Olive</golfOntology:hasName>
+        <golfOntology:hasPar rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</golfOntology:hasPar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#AugustaHole2 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#AugustaHole2">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <golfOntology:hasHoleDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">575</golfOntology:hasHoleDistance>
+        <golfOntology:hasHoleIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</golfOntology:hasHoleIndex>
+        <golfOntology:hasHoleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</golfOntology:hasHoleNumber>
+        <golfOntology:hasName>Pink Dogwood</golfOntology:hasName>
+        <golfOntology:hasPar rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</golfOntology:hasPar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#AugustaHole3 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#AugustaHole3">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <golfOntology:hasHoleDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">350</golfOntology:hasHoleDistance>
+        <golfOntology:hasHoleIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</golfOntology:hasHoleIndex>
+        <golfOntology:hasHoleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</golfOntology:hasHoleNumber>
+        <golfOntology:hasName>Flowering Peach</golfOntology:hasName>
+        <golfOntology:hasPar rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</golfOntology:hasPar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#AugustaHole4 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#AugustaHole4">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfHole"/>
+        <golfOntology:hasHoleDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</golfOntology:hasHoleDistance>
+        <golfOntology:hasHoleIndex rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</golfOntology:hasHoleIndex>
+        <golfOntology:hasHoleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</golfOntology:hasHoleNumber>
+        <golfOntology:hasName>Flowering Crab Apple</golfOntology:hasName>
+        <golfOntology:hasPar rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</golfOntology:hasPar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#AugustaNational -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#AugustaNational">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hasHole rdf:resource="http://example.org/golfOntology#AugustaHole1"/>
+        <golfOntology:hasHole rdf:resource="http://example.org/golfOntology#AugustaHole2"/>
+        <golfOntology:hasHole rdf:resource="http://example.org/golfOntology#AugustaHole3"/>
+        <golfOntology:hasHole rdf:resource="http://example.org/golfOntology#AugustaHole4"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters1935"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters1953"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters1978"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters1986"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters2010"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters2015"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters2019"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#TheMasters2024"/>
+        <golfOntology:hasCity>Augusta</golfOntology:hasCity>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasName>Augusta National Golf Course</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BalmoralGolfClub -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BalmoralGolfClub">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#FredDalyProAm2024"/>
+        <golfOntology:hasCity>Belfast</golfOntology:hasCity>
+        <golfOntology:hasCountry>Northern Ireland</golfOntology:hasCountry>
+        <golfOntology:hasName>Balmoral Golf Club</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BenHogan -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BenHogan">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen1953"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship1948"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters1953"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen1953"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen1953"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship1948"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters1953"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen1953"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9</golfOntology:hasHandicap>
+        <golfOntology:hasName>Ben Hogan</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen1932 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen1932">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen1953 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen1953">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen1974 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen1974">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen1978 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen1978">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen2006 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen2006">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen2013 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen2013">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen2014 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen2014">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen2017 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen2017">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BritishOpen2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BritishOpen2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#BritishOpen"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#TheR&amp;A"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-28</golfOntology:hasDate>
+        <golfOntology:hasName>The British Open 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#BrysonDeChambeau -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#BrysonDeChambeau">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen2024"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.2</golfOntology:hasHandicap>
+        <golfOntology:hasName>Bryson De Chambeau</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#CallawayDriver -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#CallawayDriver">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfClub"/>
+        <golfOntology:hasName>Callaway Rogue ST Max Driver</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#DBAMasters -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#DBAMasters">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GoverningBodies"/>
+        <golfOntology:hasName>dba Masters Golf Tournament</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#FredDalyProAm2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#FredDalyProAm2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#AmateurTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#GUI"/>
+        <golfOntology:hasName>Fred Daly Pro Am 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#GUI -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#GUI">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GoverningBodies"/>
+        <golfOntology:hasName>Golfing Union of Ireland</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#GaryPlayer -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#GaryPlayer">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen1974"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship1972"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters1978"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen1965"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen1974"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship1972"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters1978"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen1965"/>
+        <golfOntology:hasCountry>South Africa</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.7</golfOntology:hasHandicap>
+        <golfOntology:hasName>Gary Player</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#GeneSarazen -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#GeneSarazen">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen1932"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship1933"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters1935"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen1932"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen1932"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship1933"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters1935"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen1932"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.4</golfOntology:hasHandicap>
+        <golfOntology:hasName>Gene Sarazen</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#HazeltineGolfClub -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#HazeltineGolfClub">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#USAmateur2024"/>
+        <golfOntology:hasName>Hazeltine National Golf Club</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#JackNicklaus -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#JackNicklaus">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen1978"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship1980"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters1986"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen1980"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen1978"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship1980"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters1986"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen1980"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.1</golfOntology:hasHandicap>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#JohnODoherty -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#JohnODoherty">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#FredDalyProAm2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#FredDalyProAm2024"/>
+        <golfOntology:playsOnCourse rdf:resource="http://example.org/golfOntology#BalmoralGolfClub"/>
+        <golfOntology:hasCountry>Northern Ireland</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.1</golfOntology:hasHandicap>
+        <golfOntology:hasName>John O&apos;Doherty</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#JordanSpeith -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#JordanSpeith">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen2017"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters2015"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen2015"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen2017"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters2015"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen2015"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.2</golfOntology:hasHandicap>
+        <golfOntology:hasName>Jordan Speith</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#NoahKent -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#NoahKent">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USAmateur2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USAmateur2024"/>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.1</golfOntology:hasHandicap>
+        <golfOntology:hasName>Noah Kent</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship1933 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship1933">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship1948 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship1948">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship1972 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship1972">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship1980 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship1980">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship2007 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship2007">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship2014 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship2014">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship2021 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship2021">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:hasName>PGA Championship 2021</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PGAChampionship2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PGAChampionship2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#PGAChampionship"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-15</golfOntology:hasDate>
+        <golfOntology:hasName>PGA Championship 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PhilMickelson -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PhilMickelson">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen2013"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship2021"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters2010"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen2013"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship2021"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters2010"/>
+        <golfOntology:hasName>Phil Mickelson</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#PinehurstGolfClub -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#PinehurstGolfClub">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#USOpen2024"/>
+        <golfOntology:hasCity>USA</golfOntology:hasCity>
+        <golfOntology:hasName>Pinehurst Golf Club</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#RoryMcIlroy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#RoryMcIlroy">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen2014"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship2014"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen2011"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen2014"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship2014"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen2011"/>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.1</golfOntology:hasHandicap>
+        <golfOntology:hasName>Rory McIlroy</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#RoyalTroonGolfClub -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#RoyalTroonGolfClub">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#BritishOpen2024"/>
+        <golfOntology:hasCity>Troon</golfOntology:hasCity>
+        <golfOntology:hasCountry>Scotland</golfOntology:hasCountry>
+        <golfOntology:hasName>Royal Troon Golf Club</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerHole1Score -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerHole1Score">
+        <rdf:type rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <golfOntology:forHole rdf:resource="http://example.org/golfOntology#AugustaHole1"/>
+        <golfOntology:scoreValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</golfOntology:scoreValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerHole2Score -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerHole2Score">
+        <rdf:type rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <golfOntology:forHole rdf:resource="http://example.org/golfOntology#AugustaHole2"/>
+        <golfOntology:scoreValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</golfOntology:scoreValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerHole3Score -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerHole3Score">
+        <rdf:type rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <golfOntology:forHole rdf:resource="http://example.org/golfOntology#AugustaHole3"/>
+        <golfOntology:scoreValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</golfOntology:scoreValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerHole4Score -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerHole4Score">
+        <rdf:type rdf:resource="http://example.org/golfOntology#ScoreEntry"/>
+        <golfOntology:forHole rdf:resource="http://example.org/golfOntology#AugustaHole4"/>
+        <golfOntology:scoreValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</golfOntology:scoreValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerRound1 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerRound1">
+        <rdf:type rdf:resource="http://example.org/golfOntology#RoundOfGolf"/>
+        <golfOntology:playedBy rdf:resource="http://example.org/golfOntology#ScottieScheffler"/>
+        <golfOntology:playedDuring rdf:resource="http://example.org/golfOntology#TheMasters2024"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-10</golfOntology:hasDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#SchefflerRound1ScoreCard -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#SchefflerRound1ScoreCard">
+        <rdf:type rdf:resource="http://example.org/golfOntology#ScoreCard"/>
+        <golfOntology:hasScoreEntry rdf:resource="http://example.org/golfOntology#SchefflerHole1Score"/>
+        <golfOntology:hasScoreEntry rdf:resource="http://example.org/golfOntology#SchefflerHole2Score"/>
+        <golfOntology:hasScoreEntry rdf:resource="http://example.org/golfOntology#SchefflerHole3Score"/>
+        <golfOntology:hasScoreEntry rdf:resource="http://example.org/golfOntology#SchefflerHole4Score"/>
+        <golfOntology:recordedFor rdf:resource="http://example.org/golfOntology#ScottieScheffler"/>
+        <golfOntology:scoredOn rdf:resource="http://example.org/golfOntology#SchefflerRound1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#ScottieScheffler -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#ScottieScheffler">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters2024"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1</golfOntology:hasHandicap>
+        <golfOntology:hasName>Scottie Scheffler</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters1935 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters1935">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters1953 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters1953">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters1978 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters1978">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters1986 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters1986">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters2010 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters2010">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters2015 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters2015">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters2019 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters2019">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheMasters2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheMasters2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#TheMasters"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#DBAMasters"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-14</golfOntology:hasDate>
+        <golfOntology:hasName>The Masters 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TigerWoods -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TigerWoods">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen2006"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship2007"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#TheMasters2019"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#USOpen2008"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen2006"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship2007"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#TheMasters2019"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#USOpen2008"/>
+        <golfOntology:usesEquipement rdf:resource="http://example.org/golfOntology#CallawayDriver"/>
+        <golfOntology:usesEquipement rdf:resource="http://example.org/golfOntology#TitleistBall"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.1</golfOntology:hasHandicap>
+        <golfOntology:hasName>Tiger Woods</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TitleistBall -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TitleistBall">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfBall"/>
+        <golfOntology:hasName>Titleist Pro V1</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USAmateur2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USAmateur2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#AmateurTournament"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#USGA"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-08-10</golfOntology:hasDate>
+        <golfOntology:hasName>US Amateur 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USGA -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USGA">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GoverningBodies"/>
+        <golfOntology:hasName>United States Golf Association</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen1932 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen1932">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen1953 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen1953">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen1965 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen1965">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen1980 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen1980">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen2008 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen2008">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen2011 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen2011">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen2015 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen2015">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#USOpen2024 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#USOpen2024">
+        <rdf:type rdf:resource="http://example.org/golfOntology#MajorTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#ProfessionalTournament"/>
+        <rdf:type rdf:resource="http://example.org/golfOntology#USOpen"/>
+        <golfOntology:governedBy rdf:resource="http://example.org/golfOntology#USGA"/>
+        <golfOntology:hasDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-15</golfOntology:hasDate>
+        <golfOntology:hasName>US Open 2024</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#ValhallaGolfClub -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#ValhallaGolfClub">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GolfCourse"/>
+        <golfOntology:hostsEvent rdf:resource="http://example.org/golfOntology#PGAChampionship2024"/>
+        <golfOntology:hasCity>Valhalla</golfOntology:hasCity>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasName>Valhalla Golf Club</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#XanderSchauffele -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#XanderSchauffele">
+        <rdf:type rdf:resource="http://example.org/golfOntology#Golfer"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#BritishOpen2024"/>
+        <golfOntology:isWinnerOf rdf:resource="http://example.org/golfOntology#PGAChampionship2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#BritishOpen2024"/>
+        <golfOntology:playsInTournament rdf:resource="http://example.org/golfOntology#PGAChampionship2024"/>
+        <golfOntology:hasCountry>USA</golfOntology:hasCountry>
+        <golfOntology:hasHandicap rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</golfOntology:hasHandicap>
+        <golfOntology:hasName>Xander Schauffele</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org/golfOntology#TheR&amp;A -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/golfOntology#TheR&amp;A">
+        <rdf:type rdf:resource="http://example.org/golfOntology#GoverningBodies"/>
+        <golfOntology:hasName>The Royal and Ancient Golf Club of St Andrews</golfOntology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/golfOntology#BenHogan"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#BrysonDeChambeau"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#GaryPlayer"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#GeneSarazen"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#JackNicklaus"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#JohnODoherty"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#JordanSpeith"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#NoahKent"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#PhilMickelson"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#RoryMcIlroy"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#ScottieScheffler"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#TigerWoods"/>
+            <rdf:Description rdf:about="http://example.org/golfOntology#XanderSchauffele"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
